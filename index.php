@@ -27,6 +27,7 @@ if ($conns->connect_error) {
      </style>
     </head>
    <body>
+    
     <!-- navebar -->
     <div class="container-fluild">
 <nav class="navbar navbar-expand-lg bg-info">
