@@ -64,7 +64,10 @@ if ($conns->connect_error) {
     </div>
   </div>
 </nav>
-
+<!-- calling cart function -->
+   <?php
+       cart();
+    ?>
 <!-- second chaild -->
 <div class="sec_child">
 <nav class="navbar navbar-expand-lg navbar-light  bg-secodary">
@@ -97,7 +100,9 @@ if ($conns->connect_error) {
 
    getproducts();
    get_unique_category();
-   get_unique_brands()
+   get_unique_brands();
+  // $ip = getIPAddress();  
+  //  echo 'User Real IP Address - '.$ip; 
     ?>
       <!-- row -->
   </div>
@@ -112,6 +117,7 @@ if ($conns->connect_error) {
     <?php
     //get brands
      get_brands(); 
+
    ?>
   </ul>
 
