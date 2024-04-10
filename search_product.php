@@ -2,7 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/E-Commerce Website/admin_area/functions/common_function.php');
 ?>
 <?php
-include("../includes/connection.php");
+include("./includes/connection.php");
 ?>
 <?php
 if ($conns->connect_error) {
@@ -19,6 +19,7 @@ if ($conns->connect_error) {
     <!-- bootstrap  css link -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
      <!-- awesome link-->   
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <!--   css file -->
      <link rel="stylesheet" href="/E-Commerce Website/Style.css">
@@ -36,12 +37,12 @@ if ($conns->connect_error) {
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Products</a>
+          <a class="nav-link" href="diplay_all.php">Products</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Register</a>
@@ -50,10 +51,10 @@ if ($conns->connect_error) {
           <a class="nav-link" href="#">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/"><img src="./Images/cartt.png" alt="" class="cart"><sup></sup></a>
+          <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Total Price 100/-</a>
+         <a class="nav-link" href="#">Total Price: <?php total_cart_price(); ?>/-</a>
         </li>
       </ul>
       <form class="d-flex" role="search" action="" method="get">
@@ -63,7 +64,10 @@ if ($conns->connect_error) {
     </div>
   </div>
 </nav>
-
+<!-- calling cart function -->
+<?php
+       cart();
+    ?>
 <!-- second chaild -->
 <div class="sec_child">
 <nav class="navbar navbar-expand-lg navbar-light  bg-secodary">
@@ -72,7 +76,7 @@ if ($conns->connect_error) {
           <a class="nav-link" href="#">WelCome Guest</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="./users_area/user_login.php">Login</a>
         </li>
 </ul>
 </nav>
@@ -135,6 +139,7 @@ if ($conns->connect_error) {
 ?>
 </div>
     <!-- bootstrap js link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

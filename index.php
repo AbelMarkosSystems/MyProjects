@@ -18,7 +18,8 @@ if ($conns->connect_error) {
     <title>E-Commerce Website</title>
     <!-- bootstrap  css link -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-     <!-- awesome link-->   
+     <!-- awesome link--> 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <!--   css file -->
      <link rel="stylesheet" href="/E-Commerce Website/Style.css">
@@ -51,10 +52,10 @@ if ($conns->connect_error) {
           <a class="nav-link" href="#">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/"><img src="./Images/cartt.png" alt="" class="cart"><sup></sup></a>
+          <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Total Price 100/-</a>
+          <a class="nav-link" href="#">Total Price: <?php total_cart_price(); ?>/-</a>
         </li>
       </ul>
       <form class="d-flex" action="search_product.php" method="get">
@@ -76,7 +77,7 @@ if ($conns->connect_error) {
           <a class="nav-link" href="#">WelCome Guest</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="./users_area/user_login.php">Login</a>
         </li>
 </ul>
 </nav>
@@ -144,6 +145,7 @@ if ($conns->connect_error) {
 ?>
 </div>
     <!-- bootstrap js link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
