@@ -17,7 +17,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/E-Commerce Website/includes/connection.php
 </head>
 <body>
     <div class="container-fluid my-3">
-        <h2 class="text-center">New User Regidtration</h2>
+        <h2 class="text-center">New User Registration</h2>
         <div class="row d-flex align-items-center justify-content-center">
             <div class="lg-12 col-xl-6">
               <form action="" method="post" enctype="multipart/form-data">
@@ -106,7 +106,7 @@ $select_cart = "SELECT * from `cart_details` where ip_address='$user_ip'";
 $result_cart = mysqli_query($conns, $select_cart);
 $row_count= mysqli_num_rows($result_cart);
 if($row_count > 0){
-    $_SERVER['username']= $user_username;
+    $_SESSION['username']= $user_username;
     echo "<script>alert('You have items in your cart ');</script>";
     echo "<script>window.open('cheackout.php','_self');</script>";   
 }else
