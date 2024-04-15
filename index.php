@@ -1,10 +1,7 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/E-Commerce Website/admin_area/functions/common_function.php');
 include("./includes/connection.php");
-
-if ($conns->connect_error) {
-    die("Connection failed: " . $conns->connect_error);
-}
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +18,9 @@ if ($conns->connect_error) {
     <!-- Custom CSS file -->
     <link rel="stylesheet" href="/E-Commerce Website/Style.css">
     <style>
-  
+   body{
+      overflow-x: hidden;
+    }
     </style>
 </head>
 <body>
@@ -69,14 +68,32 @@ if ($conns->connect_error) {
 
         <!-- Second child -->
         <div class="sec_child">
-            <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+            <nav class="navbar navbar-expand-lg navbar-light bg-secondary text-light">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Welcome Guest</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./users_area/user_login.php">Login</a>
-                    </li>
+                    
+                <?php
+
+if (!isset($_SESSION['username'])) {
+  echo "<li class='nav-item'>
+   <a class='nav-link text-light' href='#'>Welcome Guest</a>
+   </li>";
+   } else {
+   echo "<li class='nav-item'>
+   <a class='nav-link text-light' href='#'>Welcome " . $_SESSION['username'] . "</a>
+   </li>";
+   }
+   //check user
+   if(!isset($_SESSION['username'])){
+   echo "<li class='nav-item'>
+   <a class='nav-link text-light' href='./users_area/user_login.php'>Login</a>
+   </li>";
+   }else{
+   echo "<li class='nav-item'>
+   <a class='nav-link text-light' href='./users_area/logout.php'>Logout</a>
+    </li>";
+  }
+
+?>
                 </ul>
             </nav>
             <div class="bg-light" style="">

@@ -5,9 +5,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/E-Commerce Website/admin_area/functions/co
 include("./includes/connection.php");
 ?>
 <?php
-if ($conns->connect_error) {
-    die("Connection failed: " . $conns->connect_error);
-}
+@session_start();
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +43,7 @@ if ($conns->connect_error) {
                             <a class="nav-link" href="diplay_all.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                            <a class="nav-link" href="./users_area/user_registration.php">Register</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -74,17 +72,31 @@ if ($conns->connect_error) {
         <div class="sec_child">
             <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Welcome Guest</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./users_area/user_login.php">Login</a>
-                    </li>
-                </ul>
+                <?php
+
+if (!isset($_SESSION['username'])) {
+  echo "<li class='nav-item'>
+   <a class='nav-link text-light' href='#'>Welcome Guest</a>
+   </li>";
+   } else {
+   echo "<li class='nav-item'>
+   <a class='nav-link text-light' href='#'>Welcome " . $_SESSION['username'] . "</a>
+   </li>";
+   }
+   //check user
+   if(!isset($_SESSION['username'])){
+   echo "<li class='nav-item'>
+   <a class='nav-link text-light' href='./users_area/user_login.php'>Login</a>
+   </li>";
+   }else{
+   echo "<li class='nav-item'>
+   <a class='nav-link text-light' href='./users_area/logout.php'>Logout</a>
+    </li>";
+  }
+
+?>
+  </ul>
             </nav>
-            <div class="bg-light" style="">
-                <img src="./Images/abi.png" alt="" class="Logo" style="height:30px; display: block; margin: 0 auto;">
-            </div>
 
             <!-- Third child -->
             <div class="bg-light">
