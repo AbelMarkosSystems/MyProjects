@@ -56,13 +56,12 @@ if (isset($_POST['user_login'])) {
     
   <style>
         body {
-            background-color: orange;
+          background-color: #138496;
         }
 
         .container {
             max-width: 600px;
             margin-top: 50px;
-            background-color: yellow;
             padding: 30px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -93,7 +92,7 @@ if (isset($_POST['user_login'])) {
 </head>
 <body>
     <!-- Navbar -->
-    <div class="container">
+    <div class="container bg-info text-light">
         <h2 class="text-center">User Login</h2>
         <form action="" method="post">
             <!-- Username -->
@@ -111,7 +110,7 @@ if (isset($_POST['user_login'])) {
             <!-- Submit button -->
             <input type="submit" class="btn btn-primary btn-login" name="user_login" value="Login"></input>
         </form>
-        <p class="text-center mt-3">Don't have an account? <a href="user_registration .php" class="login-link">Register here</a></p>
+        <p class="text-center mt-3">Don't have an account? <a href="user_registration.php" class="login-link">Register here</a></p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

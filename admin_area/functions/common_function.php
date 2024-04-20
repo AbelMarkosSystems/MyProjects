@@ -120,7 +120,7 @@ function get_all_products(){
         $result_query = mysqli_query($conns, $select_query);
         $num_rows=mysqli_num_rows($result_query);
         if($num_rows==0){
-            echo "<h2 class='text-center text-danger'>i kill you don,t worry</h2>";
+            echo "<h2 class='text-center text-danger'>This Brand Is Not Available For Service</h2>";
         }
         while ($row = mysqli_fetch_assoc($result_query)) {
             $product_id = $row['product_id'];
@@ -382,11 +382,11 @@ function get_userorders(){
   $get_detais="SELECT * from `user_table` where username='$username'";
   $result_detais = mysqli_query($conns,$get_detais);
 
-  while ($row = mysqli_fetch_array($result_detais)) {
+  while ($row = mysqli_fetch_assoc($result_detais)) {
     $user_id = $row['user_id'];
     if (!isset($_GET['edit_account'])) {
         if (!isset($_GET['my_orders'])) {
-            if (!isset($_GET['delete_account'])) {
+            if (!isset($_GET['delete_acccount'])) {
                 $get_orders = "SELECT * FROM `user_orders` WHERE user_id = $user_id AND order_status = 'pending'";
                 $result = mysqli_query($conns, $get_orders);
                 if (mysqli_num_rows($result) > 0) {

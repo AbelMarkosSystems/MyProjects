@@ -46,9 +46,17 @@ include("./includes/connection.php");
         <li class="nav-item">
           <a class="nav-link" href="diplay_all.php">Products</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
-        </li>
+        <?php
+                        if (!isset($_SESSION['username'])) {
+                        echo "<li class='nav-item'>
+                        <a class='nav-link' href='./users_area/user_registration.php'>Register</a>
+                              </li>";
+                               } else {
+                                echo "<li class='nav-item'>
+                                <a class='nav-link' href='./users_area/profile.php'>My Account</a>
+                                    </li>";
+                                }
+                                ?>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>
         </li>
@@ -139,7 +147,7 @@ echo "<li class='nav-item'>
                 <th colspan='2'>OPERATIONS</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="bg-info">
                <tr>
                 <td> <?php echo $product_title ?></td>
                 <td><img src="./Images/<?php echo $product_image ?>" alt="" class="cart_image">  </td>

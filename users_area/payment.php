@@ -47,7 +47,7 @@ $user_id= $run_query['user_id'];
         <a href="https://www.paypal.com" target="_blank"><img src="../Images/pay1.png" ></a>
         </div>
         <div class="col-md-6">
-        <a href="order.php?user_id=<?php echo "$user_id"?>" target="_blank" class="mb-10"><h2 class="text-center text-info">Pay Offline</h2></a>
+        <a href="order.php?user_id=<?php echo "$user_id"?>" class="mb-10"><h2 class="text-center text-info">Pay Offline</h2></a>
         </div>
        </div>
 </div>
